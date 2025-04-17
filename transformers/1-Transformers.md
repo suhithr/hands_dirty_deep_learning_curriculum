@@ -22,6 +22,9 @@ Implement a decoder-only transformer language model.
 
 - Here are some first principle questions to answer:
     - What is different architecturally from the Transformer, vs a normal RNN, like an LSTM? (Specifically, how are recurrence and time managed?)
+        - One key difference (and advantage to the transformer) is that an entire sequence of input tokens is processed at once and the output is produced one at a time. This is much faster than an RNN which needs to process one token at a time as the hidden state created by a token depends on the one before it.
+        - The attention concept helps this as we can attend to the entire input at once and thus generate relationships between them. This also helps with longer-range dependencies that RNNs would have trouble managing. 
+
     - Attention is defined as, $Attention(Q,K,V) = softmax(QK^T/\sqrt(d_k))\cdot V$. What are the dimensions for Q, K, and V? Why do we use this setup? What other combinations could we do with (Q,K) that also output weights?
     
         - Given the number of elements in the query is $n$ then $Q: n \times d_k$ , $K: n\times d_k$ , $V: n\times d_v$ so thus the output is $n \times d_v$
@@ -43,6 +46,9 @@ Implement a decoder-only transformer language model.
         Thus the multihead approach allows us to work around this representational limitation.
         
     - Why do we have so many skip connections, especially connecting the input of an attention function to the output? Intuitively, what if we didn't? 
+        - We use the skip connections because the gradients of the layers after add+norm after which we insert a ReLU are zero half the time. So we could have vanishing gradients and thus parts of the network could become dead. The skip connections alleviate this.
+        - They also help a bit with the outputs of the attention block which are weighted Values from V, this allows us to add some information from the input to the attention block into the output.
+
 - Now we'll actually implement the code. Make sure each of these is completely correct - it's very easy to get the small details wrong.
     - Implement the positional embedding function first. 
     - Then implement the function which calculates attention, given (Q,K,V) as arguments. 
