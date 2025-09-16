@@ -1,10 +1,8 @@
 # Transformer Implementation from Scratch
 
-Building a decoder-only transformer language model from first principles, as a fun exercise in understanding the "Attention Is All You Need" paper without relying on existing implementations or shortcuts. The paper is well written and chock full of details, enough to implement components of the transformer from.
+I built a decoder-only transformer language model from first principles. Mostly as an exercise in understanding the "Attention Is All You Need" paper without relying on existing implementations. The paper is well written and chock full of details, which were helpful in implementing these components.
 
 ## What's in here
-
-This project implements every component of a transformer from the ground up in PyTorch:
 
 Notes from [deep_learning_curriculum/1-Transformers.md](https://github.com/jacobhilton/deep_learning_curriculum/blob/master/1-Transformers.md) are in [1-Transformers.md](https://github.com/suhithr/hands_dirty_deep_learning_curriculum/blob/main/transformers/1-Transformers.md).
 
