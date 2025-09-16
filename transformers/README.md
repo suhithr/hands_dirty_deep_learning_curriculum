@@ -6,6 +6,11 @@ Building a decoder-only transformer language model from first principles, as a f
 
 This project implements every component of a transformer from the ground up in PyTorch:
 
+Notes from [deep_learning_curriculum/1-Transformers.md](https://github.com/jacobhilton/deep_learning_curriculum/blob/master/1-Transformers.md) are in [1-Transformers.md](https://github.com/suhithr/hands_dirty_deep_learning_curriculum/blob/main/transformers/1-Transformers.md).
+
+The transformer code is in [transformers.ipynb](https://github.com/suhithr/hands_dirty_deep_learning_curriculum/blob/main/transformers/transformers.ipynb) for the sequence reversal & [shakespeare-transformer.ipynb](https://github.com/suhithr/hands_dirty_deep_learning_curriculum/blob/main/transformers/shakespeare-transformer.ipynb) for the Shakespeare text.
+
+
 - **Sinusoidal positional encodings** - Injecting position information into token embeddings
 - **Multi-headed self-attention** - The core attention mechanism with correct masking for causal language modeling
 - **Feed-forward networks** - The simple MLP blocks between attention layers
